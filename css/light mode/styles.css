@@ -1,0 +1,155 @@
+:root {
+  --background-color: #fff;
+  --text-color: #000;
+  --accent-color: #000000;
+  --accent-hover-color: #ffffff;
+  --border-color: #000000;
+}
+
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  padding: 0 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: var(--accent-color);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-top: 1px solid var(--border-color);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav ul {
+  display: flex;
+}
+
+nav ul li a {
+  padding: 0.25rem 0.5rem;
+  margin: 0 0.25rem;
+}
+
+nav ul li a:hover {
+  color: var(--accent-hover-color);
+  border-radius: 5px;
+  background-color: var(--accent-color);
+}
+
+#Contact a {
+  padding: 0.25rem 0.5rem;
+}
+
+#Contact a:hover{
+  color: var(--accent-hover-color);
+  background-color: var(--accent-color);
+  border-radius: 5px;
+  border: 5rem;
+}
+
+
+
+/* Main Content */
+main {
+  gap: 1rem;
+  padding: 1rem;
+  align-items: center;
+}
+
+.Intro h1 {
+  text-align: left;
+  font-size: 12rem;
+  width: 80%;
+  float: left;
+}
+
+.Intro h2 {
+  padding-top: 18rem;
+  text-align: left;
+}
+
+.Intro p {
+  text-align: left;
+  font-size: 1.3rem;
+  padding-bottom: 10rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.Projects h2 {
+  font-size: 7rem;
+  text-align: right;
+}
+
+.Projects ul {
+  font-size: 4rem;
+  text-align: left;
+
+}
+
+.Education h2 {
+  font-size: 7rem;
+  text-align: left;
+}
+
+.Education ul {
+  font-size: 4rem;
+  text-align: right;
+}
+
+.Education h3 {
+  font-size: 4em;
+  text-align: right;
+}
+
+.Skills h2 {
+  font-size: 7rem;
+  text-align: right;
+}
+
+.Skills ul {
+  font-size: 4rem;
+  text-align: left;
+}
+
+
+.Icebreakers h2 {
+  text-align: left;
+  font-size: 7rem;
+}
+
+.Icebreakers p {
+  font-size: 4rem;
+  text-align: right;
+}
+
+.Skills,.Education,.Projects {
+  border-bottom: 1px solid var(--border-color);
+}
+#email {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+
+
+

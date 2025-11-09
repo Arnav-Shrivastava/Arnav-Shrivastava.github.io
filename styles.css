@@ -1,0 +1,334 @@
+:root {
+  /* Dark theme (default) */
+  --background-color: #000000;
+  --text-color: #ffffff;
+  --accent-color: #ffffff;
+  --accent-hover-color: #000000;
+  --border-color: #ffffff;
+  --transition-fast: 200ms;
+  --transition-medium: 320ms;
+  --easing: cubic-bezier(.2,.9,.2,1);
+}
+
+/* Light theme overrides */
+[data-theme="light"] {
+  --background-color: #f7f7fb;
+  --text-color: #0b1220;
+  --accent-color: #0b1220;
+  --accent-hover-color: #ffffff;
+  --border-color: #dfe3ea;
+}
+
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  padding: 0 1rem;
+}
+
+/* Smooth transitions for theme changes and interactive elements */
+body, header, footer, main, a, nav ul li a, section, aside {
+  transition: background-color var(--transition-medium) var(--easing), color var(--transition-medium) var(--easing), border-color var(--transition-medium) var(--easing);
+}
+
+a {
+  text-decoration: none;
+  color: var(--accent-color);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-top: 1px solid var(--border-color);
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav ul {
+  display: flex;
+}
+
+nav ul li a {
+  padding: 0.25rem 0.5rem;
+  margin: 0 0.25rem;
+}
+
+nav ul li a:hover {
+  color: var(--accent-hover-color);
+  border-radius: 6px;
+  background-color: var(--accent-color);
+  transition: background-color var(--transition-fast) var(--easing), color var(--transition-fast) var(--easing);
+}
+
+#Contact a {
+  padding: 0.25rem 0.5rem;
+}
+
+#Contact a:hover{
+  color: var(--accent-hover-color);
+  background-color: var(--accent-color);
+  border-radius: 6px;
+}
+
+
+
+/* Main Content */
+main {
+  gap: 1rem;
+  padding: 1rem;
+  align-items: center;
+}
+
+/* Theme toggle button */
+#theme-toggle {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  padding: 0.35rem 0.6rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: background-color var(--transition-fast) var(--easing), color var(--transition-fast) var(--easing), transform var(--transition-fast) var(--easing);
+}
+
+#theme-toggle:hover {
+  transform: translateY(-2px);
+}
+
+.Intro h1 {
+  text-align: left;
+  font-size: 12rem;
+  width: 80%;
+  float: left;
+}
+
+.Intro h2 {
+  padding-top: 18rem;
+  text-align: left;
+}
+
+.Intro p {
+  text-align: left;
+  font-size: 1.3rem;
+  padding-bottom: 10rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.Projects h2 {
+  font-size: 7rem;
+  text-align: right;
+}
+
+.Projects ul {
+  font-size: 4rem;
+  text-align: left;
+
+}
+
+.Education h2 {
+  font-size: 7rem;
+  text-align: left;
+}
+
+.Education ul {
+  font-size: 4rem;
+  text-align: right;
+}
+
+.Education h3 {
+  font-size: 4em;
+  text-align: right;
+}
+
+.Skills h2 {
+  font-size: 7rem;
+  text-align: right;
+}
+
+.Skills ul {
+  font-size: 4rem;
+  text-align: left;
+}
+
+
+.Icebreakers h2 {
+  text-align: left;
+  font-size: 7rem;
+}
+
+.Icebreakers p {
+  font-size: 4rem;
+  text-align: right;
+}
+
+.Skills,.Education,.Projects {
+  border-bottom: 1px solid var(--border-color);
+}
+#email {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+/* Reveal animation: initial hidden state and visible state */
+.reveal {
+  opacity: 0;
+  transform: translateY(12px) scale(0.995);
+  will-change: opacity, transform;
+}
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition: opacity var(--transition-medium) var(--easing), transform var(--transition-medium) var(--easing);
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+  .reveal, .reveal-visible { opacity: 1; transform: none; }
+}
+
+/* Technologies & Tools table styles */
+.tech-table-wrapper {
+  margin-top: 1rem;
+  overflow-x: auto;
+}
+.tech-table {
+  width: 100%;
+  max-width: 900px;
+  border-collapse: collapse;
+  margin: 0.5rem 0 2rem 0;
+  font-size: clamp(0.95rem, 1.6vw, 1.15rem);
+  background-color: transparent;
+}
+.tech-table thead th {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border-bottom: 2px solid var(--border-color);
+  color: var(--text-color);
+  background-color: rgba(255,255,255,0.03);
+  font-weight: 700;
+}
+.tech-table tbody td {
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid var(--border-color);
+  vertical-align: top;
+  color: var(--text-color);
+}
+.tech-table tbody tr:nth-child(even) td {
+  background-color: rgba(255,255,255,0.02);
+}
+
+/* Slightly stronger header color in light theme */
+[data-theme="light"] .tech-table thead th {
+  background-color: rgba(11,18,32,0.06);
+  color: var(--text-color);
+}
+
+/* Make sure the table content wraps nicely on small screens */
+.tech-table td {
+  word-break: break-word;
+}
+
+/* Add subtle focus for accessibility when using keyboard */
+.tech-table tbody tr:focus-within td,
+.tech-table tbody tr:hover td {
+  outline: 2px solid transparent;
+  background-color: rgba(255,255,255,0.03);
+}
+
+
+/* Mobile / small-screen support */
+@media (max-width: 900px) {
+  body {
+    padding: 0 0.75rem;
+  }
+
+  /* Header stacks, nav becomes a row that wraps */
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+
+  nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+
+  nav ul li a {
+    padding: 0.6rem 0.9rem;
+    margin: 0;
+    font-size: 0.95rem;
+    border-radius: 8px;
+  }
+
+  /* Make large intro heading responsive and remove float */
+  .Intro h1 {
+    font-size: clamp(2.4rem, 10vw, 5.2rem);
+    width: 100%;
+    float: none;
+    margin: 0.2rem 0;
+    line-height: 1.02;
+  }
+
+  .Intro h2 { padding-top: 0.5rem; }
+
+  .Intro p { font-size: 1rem; padding-bottom: 1.5rem; }
+
+  /* Reduce oversized section headings and text for readability */
+  .Projects h2, .Skills h2, .Education h2, .Icebreakers h2 {
+    font-size: clamp(1.6rem, 8vw, 3.2rem);
+    text-align: left;
+  }
+
+  .Projects ul, .Skills ul, .Education ul, .Icebreakers p {
+    font-size: clamp(1rem, 4.2vw, 1.5rem);
+    text-align: left;
+  }
+
+  /* Stack project grid if present */
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  /* Make footer stack and center */
+  footer {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Extra small devices: give more comfortable touch targets */
+  nav ul li a { padding: 0.75rem 1rem; font-size: 1rem; }
+  #theme-toggle { padding: 0.5rem 0.8rem; }
+
+  /* Further reduce intro heading if screen is tiny */
+  .Intro h1 { font-size: clamp(2rem, 12vw, 4rem); }
+  .project-item { font-size: clamp(0.95rem, 4.6vw, 1.25rem); }
+}
+
+
+
+

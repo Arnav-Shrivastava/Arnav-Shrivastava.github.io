@@ -266,6 +266,16 @@ main {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.5rem;
+    position: relative;
+  }
+
+  /* Position theme toggle in top-right on mobile */
+  #theme-toggle {
+    position: absolute;
+    top: 0.5rem;
+    right: 0;
+    padding: 0.65rem 0.85rem;
+    font-size: 1.3rem;
   }
 
   nav ul {
@@ -322,7 +332,13 @@ main {
 @media (max-width: 480px) {
   /* Extra small devices: give more comfortable touch targets */
   nav ul li a { padding: 0.75rem 1rem; font-size: 1rem; }
-  #theme-toggle { padding: 0.5rem 0.8rem; }
+  
+  /* Larger theme toggle for tiny screens */
+  #theme-toggle { 
+    padding: 0.7rem 0.9rem; 
+    font-size: 1.4rem;
+    top: 0.25rem;
+  }
 
   /* Further reduce intro heading if screen is tiny */
   .Intro h1 { font-size: clamp(2rem, 12vw, 4rem); }

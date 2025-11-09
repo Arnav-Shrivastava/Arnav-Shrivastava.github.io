@@ -20,6 +20,8 @@
             <li><a href="#Contact">Contact</a></li>
         </ul>
     </nav>
+    <!-- Theme toggle button -->
+    <button id="theme-toggle" aria-label="Toggle theme" title="Toggle light/dark mode">🌙</button>
 </header>
 
 <main>
@@ -126,6 +128,53 @@
         <a href="https://www.linkedin.com/in/arnav-shrivastava-55bb9a2a6/", target="_blank">Linkedin</a>
     </div>
 </footer>
+
+<!-- Theme toggle script -->
+<script>
+  (function () {
+    const root = document.documentElement;
+    const toggle = document.getElementById('theme-toggle');
+
+    // Respect saved preference or system preference
+    const saved = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const initial = saved ? saved : (prefersDark ? 'dark' : 'light');
+    root.setAttribute('data-theme', initial);
+    updateToggle();
+
+    toggle.addEventListener('click', () => {
+      const current = root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+      const next = current === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+      updateToggle();
+    });
+
+    function updateToggle() {
+      const isDark = root.getAttribute('data-theme') === 'dark';
+      toggle.textContent = isDark ? '🌙' : '☀️';
+      toggle.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+    }
+
+    // Reveal-on-scroll for sections (respect reduced motion)
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!prefersReduced && 'IntersectionObserver' in window) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('reveal-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08 });
+
+      document.querySelectorAll('main section').forEach(el => {
+        el.classList.add('reveal');
+        observer.observe(el);
+      });
+    }
+  })();
+</script>
 
 </body>
 </html>
